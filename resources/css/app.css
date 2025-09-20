@@ -1,11 +1,29 @@
-@import 'tailwindcss';
+@import "bootstrap/dist/css/bootstrap.min.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+body{
+font-family: 'Times New Roman', Times, serif;
 }
+
+.pageinsc {
+    max-width: 100%;
+    max-width: 900px; /* ou 80vw si tu veux plus fluide */
+    padding: 2rem;
+    text-align: center;
+    border-left: 10px solid bisque;
+}
+@media (max-width: 768px) {
+    .pageinsc {
+        border-left: none;
+        border-top: 5px solid bisque;
+        padding: 1rem;
+    }
+}
+
+.role-section{
+margin: 5vh auto;
+}
+

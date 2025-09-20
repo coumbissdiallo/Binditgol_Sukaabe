@@ -11,14 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
+       // Table communes et roles doivent exister AVANT cette migration
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nom');
+            $table->string('prenom');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('telephone');
+            $table->unsignedBigInteger('id_commune')->nullable();
+            $table->unsignedBigInteger('id_maternite')->nullable();
             $table->string('password');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            // Clés étrangères
+            $table->foreign('id_commune')->references('id')->on('communes');
+            $table->foreign('id_maternite')->references('id')->on('maternites');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -37,13 +47,10 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };

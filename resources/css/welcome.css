@@ -1,0 +1,37 @@
+.hero-section{
+    background-image: url('/public/images/bebe-bannier.jpg');
+background-size:cover;
+background-position:center;
+height: 100vh;
+background-repeat: no-repeat;
+position:relative;
+}
+.fond{
+position: absolute;
+top: 0;
+left: 0;
+background-color: rgba(8, 18, 44, 0.8); 
+}
+
+.mon-cadre{
+  box-shadow: 0px 8px 10px #cdb694;
+border: 2px solid transparent;
+}
+.hero-section h4{
+color: white;
+}
+.mon-cadre p{
+color: white;
+}
+.logo1{
+color:#cdb694;
+}
+.logo2{
+color:#7aa8ff;
+}
+@media (min-width: 992px) {
+    .container-fixed {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
